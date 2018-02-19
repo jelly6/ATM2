@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ATM</string>
+    <string name="username">帳號</string>
+    <string name="password">密碼</string>
+    <string name="login">登入</string>
+    <string name="cancel">取消</string>
+</resources>
