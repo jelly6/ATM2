@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     boolean logan=false;
@@ -51,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
             ListView list=findViewById(R.id.list);
             ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
             list.setAdapter(adapter);
+
+            //使用spinner
+            Spinner notify=findViewById(R.id.notify_spinner);
+            ArrayAdapter<CharSequence> nAdapter=ArrayAdapter.createFromResource(this,R.array.notify_array,android.R.layout.simple_spinner_item);
+            nAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            notify.setAdapter(nAdapter);
 
 
         }
