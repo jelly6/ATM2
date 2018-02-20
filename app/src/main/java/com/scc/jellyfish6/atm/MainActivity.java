@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        //使用gridView
+        GridView grid=findViewById(R.id.grid);
+        ArrayAdapter gAdapter= new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
+        grid.setAdapter(gAdapter);
 
 
     }
