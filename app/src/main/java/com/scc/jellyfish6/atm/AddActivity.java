@@ -22,7 +22,8 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         findViews();
-        helper = new MyDBHelper(this,"expanse.db",null,1);
+        //helper = new MyDBHelper(this,"expanse.db",null,1);
+        helper=MyDBHelper.getInstance(this);
 
 
     }

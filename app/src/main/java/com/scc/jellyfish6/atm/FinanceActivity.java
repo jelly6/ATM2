@@ -20,7 +20,8 @@ public class FinanceActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //從DB查資料Show 在ListView
         ListView list=findViewById(R.id.list);
-        MyDBHelper helper=new MyDBHelper(this,"expanse.db",null,1);
+        //MyDBHelper helper=new MyDBHelper(this,"expanse.db",null,1);
+        MyDBHelper helper=MyDBHelper.getInstance(this);
         Cursor c=helper.getReadableDatabase().query(
                 "exp",null,null,null,null,null,null
         );
