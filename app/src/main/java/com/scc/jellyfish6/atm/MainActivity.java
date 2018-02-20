@@ -7,8 +7,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -20,6 +22,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     //String[] func={"balance check","business detail","The News","Investiment","Leave"}
     String[] func={"餘額查詢","交易明細","最新消息","投資理財","離開"};
     int[] icons={R.drawable.func_balance,R.drawable.func_history,R.drawable.func_news,R.drawable.func_finance,R.drawable.func_exit};
+
+    //設計IconAdapter繼承BaseAdapter
+    class IconAdapter extends BaseAdapter{
+        @Override
+        public int getCount() {
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            return null;
+        }
+    }
+
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_xml,menu);
