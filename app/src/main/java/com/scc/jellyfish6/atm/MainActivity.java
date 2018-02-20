@@ -124,23 +124,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //ArrayAdapter gAdapter= new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
         IconAdapter gAdapter=new IconAdapter();
         grid.setAdapter(gAdapter);
-        //grid.setOnItemClickListener(this);
+        grid.setOnItemClickListener(this);
 
 
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        switch(position){
-            case 0:
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        switch((int) id){
+            case R.drawable.func_balance:
                 break;
-            case 1:
+            case R.drawable.func_history:
                 break;
-            case 2:
+            case R.drawable.func_news:
                 break;
-            case 3:
+            case R.drawable.func_finance:
                 break;
-            case 4:
+            case R.drawable.func_exit:
                 finish();
                 break;
         }
