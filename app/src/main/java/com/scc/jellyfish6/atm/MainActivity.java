@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static final int FUNC_LOGIN=1;
     //String[] func={"balance check","business detail","The News","Investiment","Leave"}
     String[] func={"餘額查詢","交易明細","最新消息","投資理財","離開"};
+    int[] icons={R.drawable.func_balance,R.drawable.func_history,R.drawable.func_news,R.drawable.func_finance,R.drawable.func_exit};
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_xml,menu);
