@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     boolean logan=false;
     public static final int FUNC_LOGIN=1;
     //String[] func={"balance check","business detail","The News","Investiment","Leave"}
@@ -82,7 +82,25 @@ public class MainActivity extends AppCompatActivity {
         GridView grid=findViewById(R.id.grid);
         ArrayAdapter gAdapter= new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
         grid.setAdapter(gAdapter);
+        grid.setOnItemClickListener(this);
 
 
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+        switch(position){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                finish();
+                break;
+        }
     }
 }
