@@ -6,11 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
     boolean logan=false;
     public static final int FUNC_LOGIN=1;
-
+    //String[] func={"balance check","business detail","The News","Investiment","Leave"}
+    String[] func={"餘額查詢","交易明細","最新消息","投資理財","離開"};
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_xml,menu);
@@ -45,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(this,LoginActivity.class);
             //startActivity(intent);
             startActivityForResult(intent,FUNC_LOGIN);
+            ListView list=findViewById(R.id.list);
+            ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
+            list.setAdapter(adapter);
+
 
         }
     }
