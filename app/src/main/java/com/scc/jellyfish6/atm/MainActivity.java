@@ -12,8 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -27,22 +29,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     class IconAdapter extends BaseAdapter{
         @Override
         public int getCount() {
-            return 0;
+            return func.length;
         }
 
         @Override
-        public Object getItem(int i) {
-            return null;
+        public Object getItem(int position) {
+            return func[position];
         }
 
         @Override
-        public long getItemId(int i) {
-            return 0;
+        public long getItemId(int position) {
+            return icons[position];
         }
 
         @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View row=convertView;
+            if(row==null){
+                row=getLayoutInflater().inflate(R.layout.item_raw,null);
+                ImageView image=row.findViewById(R.id.item_image);
+                TextView text=row.findViewById(R.id.item_text);
+                image.setImageResource(icons[position]);
+                text.setText(func[position]);
+            }
+            return row;
         }
     }
 
@@ -111,9 +121,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         );
         //使用gridView
         GridView grid=findViewById(R.id.grid);
-        ArrayAdapter gAdapter= new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
+        //ArrayAdapter gAdapter= new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
+        IconAdapter gAdapter=new IconAdapter();
         grid.setAdapter(gAdapter);
-        grid.setOnItemClickListener(this);
+        //grid.setOnItemClickListener(this);
 
 
     }
