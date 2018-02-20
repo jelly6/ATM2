@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     boolean logan=false;
@@ -49,17 +52,32 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(this,LoginActivity.class);
             //startActivity(intent);
             startActivityForResult(intent,FUNC_LOGIN);
-            ListView list=findViewById(R.id.list);
-            ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
-            list.setAdapter(adapter);
 
-            //使用spinner
-            Spinner notify=findViewById(R.id.notify_spinner);
-            ArrayAdapter<CharSequence> nAdapter=ArrayAdapter.createFromResource(this,R.array.notify_array,android.R.layout.simple_spinner_item);
-            nAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            notify.setAdapter(nAdapter);
 
 
         }
+        ListView list=findViewById(R.id.list);
+        ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,func);
+        list.setAdapter(adapter);
+        //使用spinner
+        Spinner notify=findViewById(R.id.notify_spinner);
+        final ArrayAdapter<CharSequence> nAdapter=ArrayAdapter.createFromResource(this,R.array.notify_array,android.R.layout.simple_spinner_item);
+        nAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        notify.setAdapter(nAdapter);
+        notify.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        Toast.makeText(MainActivity.this,nAdapter.getItem(position),Toast.LENGTH_LONG).show();;
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                }
+        );
+
+
     }
 }
