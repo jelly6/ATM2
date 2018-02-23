@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main_xml,menu);
+        getMenuInflater().inflate(R.menu.menu_main,menu);
         return true;
     }
 
